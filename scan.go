@@ -10,8 +10,8 @@ import (
 scan a folder to find any sub-folders
 and git repositories.
 */
-func Scan(f string) {
-	scanFolder(make([]string, 0), f)
+func Scan(f string) []string {
+	return scanFolder(make([]string, 0), f)
 }
 
 

@@ -13,10 +13,11 @@ func main() {
 
 	flag.Parse()
 
+	var repos []string
 	if folder != "" {
-		Scan(folder)
+		repos = Scan(folder)
 		return
 	}
 
-	Stats(email)
+	Stats(email, repos)
 }
