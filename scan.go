@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	pathUtils "path"
 	"strings"
@@ -20,6 +21,7 @@ scan a given folder.
 Retrieves all the sub-folders which are git repositories.
 */
 func scanFolder(paths []string, curr string) []string {
+	fmt.Printf("found %d folders to scan\n", len(paths))
 	f, _ := os.Open(curr)
 
 	fps, _ := f.Readdir(-1)
@@ -30,6 +32,7 @@ func scanFolder(paths []string, curr string) []string {
 		//for each directory, find out if is a git repo
 		if fp.IsDir(){
 			path = pathUtils.Join(curr, fp.Name())
+			fmt.Printf("searching in %s\n", path)
 			if fp.Name() == ".git" {
 				path = strings.TrimSuffix(path, "\\.git")
 				paths = append(paths, path)

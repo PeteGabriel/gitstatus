@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
+	var email  string
 	var folder string
-	var email string
 
 	flag.StringVar(&folder, "src", "", "source folder to scan for git repositories")
 	flag.StringVar(&email, "email", "", "the email to scan")
@@ -16,7 +16,6 @@ func main() {
 	var repos []string
 	if folder != "" {
 		repos = Scan(folder)
-		return
 	}
 
 	Stats(email, repos)
